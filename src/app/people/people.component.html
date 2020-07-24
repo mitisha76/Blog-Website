@@ -1,0 +1,39 @@
+<section>
+    <div class="container">
+        
+        <div class="row">
+           
+
+            <div class="col-md-4"></div>
+
+            
+
+            <div class="col-md-4 mt-5">
+                <div class="card profile-card-3 " >
+                    <div class="background-block">
+                        <img src="https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                            alt="profile-sample1" class="background" />
+                    </div>
+                    <div class="profile-thumb-block">
+                        <img src="data:image/png;base64,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" alt="profile-image" class="profile" />
+                    </div>
+                    <div class="card-content">
+                        <h2>{{result.firstname}} {{result.lastname}}<small>@{{result.username}}</small></h2>
+                            <p>Followers : {{result.followers.length}}
+                                <span>Following : {{result.following.length}}</span>
+                            </p>
+                            
+                            <div class="icon-block">
+                                <a style="cursor: pointer;" style="margin-bottom: 10px;" [hidden]="!myVar" (click)="follow(result.userid)"><span>Follow</span></a><br>
+                                <a style="cursor: pointer;" [hidden]="myVar" (click)="unfollow(result.userid)"><span>Unfollow</span></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4"></div>
+
+
+        </div>
+    </div>
+</section>

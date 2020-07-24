@@ -1,0 +1,104 @@
+
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-2 ">
+		     
+		</div>
+		<div class="col-md-8">
+		    <div class="card">
+		        <div class="card-body">
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <h4>Your Profile</h4>
+		                    <hr>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-md-12">
+		                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                              <div class="form-group row">
+                                <label for="username" class="col-4 col-form-label">User Name*</label>
+                                <div class="col-8">
+                                  <input formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="result.username" name="username" placeholder="Username" class="form-control here" required="required" type="text" disabled required>
+                                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                    <div *ngIf="f.username.errors.required">Username is required</div>
+                                    <div *ngIf="f.username.errors.minlength">UserName must be at least 6 characters</div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="name" class="col-4 col-form-label">First Name</label>
+                                <div class="col-8">
+                                  <input id="name" name="name"formControlName="firstName" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" [(ngModel)]="result.firstname" placeholder="First Name" class="form-control here" type="text" required>
+                                  <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="lastname" class="col-4 col-form-label">Last Name</label>
+                                <div class="col-8">
+                                  <input formControlName="lastName" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" name="lastname" [(ngModel)]="result.lastname" placeholder="Last Name" class="form-control here" type="text" required>
+                                  <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <label for="email" class="col-4 col-form-label">Email*</label>
+                                <div class="col-8">
+                                  <input formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" name="email" placeholder="Email" [(ngModel)]="result.email" class="form-control here" required="required" type="text" required>
+                                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.email.errors.required">Email is required</div>
+                                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                </div>
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                    <label for="about" class="col-4 col-form-label">About Me*</label>
+                                    <div class="col-8">
+                                      <input  name="about" placeholder="About" formControlName="description" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" 
+                                       [(ngModel)]="result.description" class="form-control here" required="required" type="text" required>
+                                       <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                                        <div *ngIf="f.description.errors.required">Description is required</div>
+                                    </div>
+                                    </div>
+                                  </div>
+                                  <div class="form-group row">
+                                    <label for="about" class="col-4 col-form-label">Status</label>
+                                    <div class="col-8">
+                                      <select [(ngModel)]="result.status" name="status" class="form-control">
+                                        <option value="private" >Private</option>
+                                        <option value="public">Public</option>
+                                      </select>
+                                    </div>
+                                  </div>
+                              <div class="form-group row">
+                                <label for="newpass" class="col-4 col-form-label">New Password</label>
+                                <div class="col-8">
+                                  <input [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password" 
+                                   name="newpass" placeholder="New Password" [(ngModel)]="result.password" class="form-control here" type="text" required>
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                                  <div *ngIf="f.password.errors.required">Password is required</div>
+                                  <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                              </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="offset-4 col-8">
+                                  <button class="btn btn-primary">Update Profile</button>
+                                </div>
+                              </div>
+                            </form>
+		                </div>
+		            </div>
+
+		        </div>
+		    </div>
+        </div>
+        <div class="col-md-2 ">
+		     
+            </div>
+	</div>
+</div>

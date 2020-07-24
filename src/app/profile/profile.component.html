@@ -1,0 +1,148 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<div class="container-fluid emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4" style="max-width: 18rem;">
+                <!-- <div class="profile-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                        alt="" />
+                    <div class="file btn btn-lg btn-primary">
+                        Change Photo
+                        <input type="file" name="file" />
+                    </div>
+                </div> -->
+
+                <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Followers</h5></div>
+                    <div class="card-body text-dark" *ngFor="let follow of followers">
+                      <span class="card-title mr-2">@{{follow.username}}</span>
+                      <button class="btn btn-outline-dark "  style="float:right"(click)="remove(follow.userid)"> Remove</button>
+                    </div>
+                  </div>
+
+                  <div class="card border-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Following</h5></div>
+                    <div class="card-body text-dark" *ngFor="let follow of following">
+                      <span class="card-title mr-2">@{{follow.username}}</span>
+                      <button class="btn btn-outline-dark "  style="float:right"  (click)="unfollow(follow.userid)"> Unfollow</button>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-md-7">
+                <div class="profile-head">
+                    <h5>
+                        {{result.username}}
+                    </h5>
+                    <h6>
+                        {{result.description}}
+                    </h6>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">About</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>User Id</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.userid}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>UserName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.username}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>FirstName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.firstname}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>LastName</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.lastname}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.email}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Profession</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.description}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Status</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{result.status}}</p>
+                        </div>
+                    </div>
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                aria-controls="home" aria-selected="true">Timeline</a>
+                        </li>
+
+                    </ul>
+
+
+
+
+
+                    <div class="card text-center mb-3"   *ngFor="let blog of blogs">
+                        <div class="card-header" >
+                            {{blog.title}}
+                            <i class="fa fa-eye" style="font-size: 20px; text-align-last: left;color:blue;cursor: pointer;" (click)="view(blog.id)"></i>
+
+                        </div>
+                        <div class="card-body">
+
+                            <h5 class="card-title">{{blog.body}}</h5>
+                            <a class="btn btn-primary m-3" [routerLink]="['editBlog',blog._id]">Edit blog</a>
+                            <button class="btn btn-danger m-3" (click)="delete(blog._id)">Delete blog</button>
+                        </div>
+                        <div class="card-footer text-primary" >
+                            {{blog.create_date | date:'medium'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2" (click)="editProfile()">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+            </div>
+        </div>
+
+    </form>
+</div>
